@@ -1,0 +1,40 @@
+{
+  "PIZZERIA": {
+    "TAMANO": [
+      {
+        "TAMANO_BASE": "Pequeña 5€",
+        "PRECIO_BASE": "5"
+      },
+      {
+        "TAMANO_BASE": "Mediana 10€",
+        "PRECIO_BASE": "10"
+      },
+      {
+        "TAMANO_BASE": "Grande 15€",
+        "PRECIO_BASE": "15"
+      }
+    ],
+    "INGREDIENTES": [
+      {
+        "INGREDIENTE": "Jamón + 2",
+        "PRECIO_INGREDIENTE": "2"
+      },
+      {
+        "INGREDIENTE": "Champiñón + 1",
+        "PRECIO_INGREDIENTE": "1"
+      },
+      {
+        "INGREDIENTE": "Cebolla + 1",
+        "PRECIO_INGREDIENTE": "1"
+      },
+      {
+        "INGREDIENTE": "Pollo + 2",
+        "PRECIO_INGREDIENTE": "2"
+      },
+      {
+        "INGREDIENTE": "Extra de Queso + 1",
+        "PRECIO_INGREDIENTE": "1"
+      }
+    ]
+  }
+}
