@@ -53,8 +53,8 @@ window.onload = function(){
 }
 
 //CARGA DEL JSON
-        const URL_DESTINO = "http://localhost:5500/datos/"//Carpeta en la que se encuentra el Json
-        const bbdd_pizzeria = "bbdd_pizzeria.json"// Nombre del archivo Json
+        const URL_DESTINO = "http://localhost:5501/"//Carpeta en la que se encuentra el Json
+        const bbdd_pizzeria = "datos/bbdd_pizzeria.json"// Nombre del archivo Json
 
         //Creamos el nodo de salto de linea que nos permite ver el formulario en lineas diferentes.
         let saltolinea = document.createElement("br");  
@@ -85,7 +85,31 @@ window.onload = function(){
             console.log(pizzeriaJson)
 
         //RADIO BUTTON TAMAÑO PIZZA
+
+           //Creamos un titulo con texto y lo añadimos al formulario
+           let tituloh3 = document.createElement("h3")
+           let texto1 = document.createTextNode("Tamaño Pizzas")
            
+           tituloh3.appendChild(texto1)
+           formulario.appendChild(tituloh3)
+           console.log(tituloh3)
+
+           //Almacenamos el objeto JSON datos.json en una variable, para poder acceder a ella(ARRAY)
+           var tamanoJSON = pizzeriaJson.PIZZERIA.TAMANO;
+
+            //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
+            for(let i=0; i< tamanoJSON.length; i++){
+               let input2 = document.createElement("input")//<input></input>
+               input2.setAttribute("type", "radio")//<input type="checkbox"></input>
+               input2.setAttribute("name", "tamano")//<input type="checkbox" name="ingredientes"></input>
+               input2.setAttribute("id", tamanoJSON[i].TAMANO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]"></input>
+               input2.setAttribute("value", tamanoJSON[i].PRECIO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input>
+               let txt2 = document.createTextNode(tamanoJSON[i].TAMANO_BASE)//objetoJson.ID[i]
+               let salto2 = document.createElement("br")//<br>
+               formulario.appendChild(input2) //<form> <input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input> </form>
+               formulario.appendChild(txt2)  //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input>
+               formulario.appendChild(salto2) //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input> <br>
+           }
             
 
 
