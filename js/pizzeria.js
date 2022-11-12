@@ -102,9 +102,40 @@ window.onload = function(){
         
 
     // FUNCION PARA CALCULAR EL TOTAL DEL PEDIDO
-        function totalPedido(){
+    function totalPedido(){
+        var total=0
+        var totalTam =0
+        //Calculamos el importe según el tamaño de la pizza        
+        console.log("Calculando importe tamaño pizza")
+        var tam = document.getElementsByName('tamano');
+            for(i = 0; i < tam.length; i++) { 
+                        if(tam[i].checked) 
+                            totalTam=parseInt(tamanoPizzas[i].PRECIO_BASE)
+            }
+        console.log(totalTam)
+        //Calculamos el importe según los ingredientes 
+        console.log("Calculando importe ingredientes")
+        //Variable que contiene el total de los ingredientes seleccionados
+        var totalIng =0
+        //Variable que contiene el numero de ingredientes del array ingredientes
+        var ingrediente = document.getElementsByName('ingredientes');        
+        console.log(ingrediente)
+        
+        // Chequeamos de array ingredientesPizzas los que estan checked
+        for(i = 0; i < ingredientesPizzas.length; i++) { 
+                if(ingrediente[i].checked) //Si el ingrediente del formulario esta checked
+                    /*A la variabla totalIng le sumamos su contenido más el precio que aparede en el 
+                    json como PRECIO_INGREDIENTE*/
+                    totalIng=totalIng + parseInt(ingredientesPizzas[i].PRECIO_INGREDIENTE)
+            }
 
-
-
-                
-        }
+        console.log("Total Ingredientes")    
+        console.log(totalIng)
+        /* Una vez tenemos almacenada la información en las variables que totalizan el tamaño y los ingredientes, 
+        los sumamos y asignamos a la variable total.*/    
+        total = totalTam+totalIng
+        // Añadimos el total del pedido al div del body
+        totalizarPedido.innerHTML = "<h4 align='left'>Total Pedido:</h2>" + total
+        console.log(total)
+        console.log("validando el pedido FIN")
+}
