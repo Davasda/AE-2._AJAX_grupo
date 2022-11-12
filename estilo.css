@@ -1,0 +1,51 @@
+
+* {
+    margin: 0;
+    padding: 0;
+
+    /*outline: 1px solid red;*/
+
+}
+
+body {
+
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*background-color:rgb(202, 202, 238);*/
+    background-image:url("pizza.jpg");
+    background-position: bottom right;
+    background-repeat:no-repeat;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+h1 {
+    font-family: sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    color: #df4217;
+    font-size: 4em;
+    text-align: center;
+}
+
+div {
+
+    text-align: center;    
+    display: block;
+
+}
+
+button {
+    width: 175px;
+    height: 50px;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #060606;
+    background-color: #90dff3;
+    font-size: 1em;
+    border: none;
+    margin: 40px 10px 0 10px;
+}
