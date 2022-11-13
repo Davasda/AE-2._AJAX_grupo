@@ -8,6 +8,12 @@ window.onload = function(){
             formulario.setAttribute("action","urlServidor")
             formulario.setAttribute("method","get")
         
+    //Creamos un titulo con texto y lo añadimos al formulario
+        let titulop = document.createElement("h2")
+        let textop = document.createTextNode("¿Dónde te la mandamos?")
+               
+        titulop.appendChild(textop)
+        formulario.appendChild(titulop)
     
             //  Creamos los nodos campos de texto donde poner el DNI, el nombre y los apellidos, la dirección y el teléfono.
             //   y asignamos los atributos a cada uno.
@@ -88,41 +94,56 @@ window.onload = function(){
 
            //Creamos un titulo con texto y lo añadimos al formulario
            let tituloh3 = document.createElement("h3")
-           let texto1 = document.createTextNode("Tamaño Pizzas")
+           let texto1 = document.createTextNode("¿Qué tamaño te gustaria?")
            
            tituloh3.appendChild(texto1)
            formulario.appendChild(tituloh3)
            console.log(tituloh3)
 
            //Almacenamos el objeto JSON datos.json en una variable, para poder acceder a ella(ARRAY)
-           var tamanoJSON = pizzeriaJson.PIZZERIA.TAMANO;
+           var tamanoPizzas = pizzeriaJson.PIZZERIA.TAMANO;
 
             //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
-            for(let i=0; i< tamanoJSON.length; i++){
+            for(let i=0; i< tamanoPizzas.length; i++){
                let input2 = document.createElement("input")//<input></input>
                input2.setAttribute("type", "radio")//<input type="checkbox"></input>
                input2.setAttribute("name", "tamano")//<input type="checkbox" name="ingredientes"></input>
-               input2.setAttribute("id", tamanoJSON[i].TAMANO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]"></input>
-               input2.setAttribute("value", tamanoJSON[i].PRECIO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input>
-               let txt2 = document.createTextNode(tamanoJSON[i].TAMANO_BASE)//objetoJson.ID[i]
+               input2.setAttribute("id", tamanoPizzas[i].TAMANO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]"></input>
+               input2.setAttribute("value", tamanoPizzas[i].PRECIO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input>
+               let txt2 = document.createTextNode(tamanoPizzas[i].TAMANO_BASE)//objetoJson.ID[i]
                let salto2 = document.createElement("br")//<br>
                formulario.appendChild(input2) //<form> <input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input> </form>
                formulario.appendChild(txt2)  //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input>
                formulario.appendChild(salto2) //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input> <br>
            }
             
-
-
-
         //CHECKBOX INGREDIENTES PIZZA
         
-        
+            //Creamos un titulo y lo añadimos al formulario
+                let titulo2 = document.createElement("h3")
+                let texto2 = document.createTextNode("¿Te gustaria añadir algún elemento más?")
 
+                titulo2.appendChild(texto2)
+                formulario.appendChild(titulo2)
 
+            //Almacenamos el objeto JSON bbdd_pizzeria.json en una variable, para poder acceder a ella
 
-        }  
+            var ingredientesPizzas = pizzeriaJson.PIZZERIA.INGREDIENTES;
 
-
+            //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
+            for(let i=0; i< ingredientesPizzas.length; i++){
+                let input3 = document.createElement("input")
+                input3.setAttribute("type", "checkbox")
+                input3.setAttribute("name", "ingredientes")
+                input3.setAttribute("id", ingredientesPizzas[i].INGREDIENTE)
+                input3.setAttribute("value", ingredientesPizzas[i].PRECIO_INGREDIENTE)
+                let txt3 = document.createTextNode(ingredientesPizzas[i].INGREDIENTE)
+                let salto2 = document.createElement("br")
+                formulario.appendChild(input3) 
+                formulario.appendChild(txt3) 
+                formulario.appendChild(salto2)
+            }
+    }  
         
 
     // FUNCION PARA CALCULAR EL TOTAL DEL PEDIDO
