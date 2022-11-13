@@ -13,7 +13,7 @@ body {
     height: 100%;
     display: block;
     /*background-color:rgb(202, 202, 238);*/
-    background-image:url("pizza.jpg");
+    background-image: url("pizza.jpg");
     background-position: bottom right;
     background-repeat:no-repeat;
     margin-left: auto;

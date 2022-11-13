@@ -14,6 +14,7 @@ window.onload = function(){
                
         titulop.appendChild(textop)
         formulario.appendChild(titulop)
+        formulario.appendChild(saltolinea.cloneNode())
     
             //  Creamos los nodos campos de texto donde poner el DNI, el nombre y los apellidos, la dirección y el teléfono.
             //   y asignamos los atributos a cada uno.
@@ -53,6 +54,8 @@ window.onload = function(){
     
         // AÑADIMOS EL FORMULARIO AL DIV DEL HTML
         divPrincipal.appendChild(formulario)
+        formulario.appendChild(saltolinea.cloneNode())
+        formulario.appendChild(saltolinea.cloneNode())
     
     // Llama a la función que solicita datos Json    
     peticionAsincrona()
@@ -99,6 +102,7 @@ window.onload = function(){
            tituloh3.appendChild(texto1)
            formulario.appendChild(tituloh3)
            console.log(tituloh3)
+           formulario.appendChild(saltolinea.cloneNode())
 
            //Almacenamos el objeto JSON datos.json en una variable, para poder acceder a ella(ARRAY)
            var tamanoPizzas = pizzeriaJson.PIZZERIA.TAMANO;
@@ -115,16 +119,18 @@ window.onload = function(){
                formulario.appendChild(input2) //<form> <input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input> </form>
                formulario.appendChild(txt2)  //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input>
                formulario.appendChild(salto2) //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input> <br>
-           }
+               formulario.appendChild(saltolinea.cloneNode())
+            }
             
         //CHECKBOX INGREDIENTES PIZZA
         
             //Creamos un titulo y lo añadimos al formulario
                 let titulo2 = document.createElement("h3")
                 let texto2 = document.createTextNode("¿Te gustaria añadir algún elemento más?")
-
+                formulario.appendChild(saltolinea.cloneNode())
                 titulo2.appendChild(texto2)
-                formulario.appendChild(titulo2)
+                formulario.appendChild(titulo2)                
+                formulario.appendChild(saltolinea.cloneNode())
 
             //Almacenamos el objeto JSON bbdd_pizzeria.json en una variable, para poder acceder a ella
 
@@ -142,8 +148,10 @@ window.onload = function(){
                 formulario.appendChild(input3) 
                 formulario.appendChild(txt3) 
                 formulario.appendChild(salto2)
+                formulario.appendChild(saltolinea.cloneNode())
             }
-    }  
+        
+        }
         
 
     // FUNCION PARA CALCULAR EL TOTAL DEL PEDIDO
@@ -183,4 +191,4 @@ window.onload = function(){
         totalizarPedido.innerHTML = "<h4 align='left'>Total Pedido:</h2>" + total
         console.log(total)
         console.log("validando el pedido FIN")
-}
+    }
