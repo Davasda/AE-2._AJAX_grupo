@@ -188,7 +188,7 @@ window.onload = function(){
         los sumamos y asignamos a la variable total.*/    
         total = totalTam+totalIng
         // Añadimos el total del pedido al div del body
-        totalizarPedido.innerHTML = "<h4 align='left'>Total Pedido:</h2>" + total
+        totalizarPedido.innerHTML = "<h4>Total Pedido: </h4>"+ total +"€"
         console.log(total)
         console.log("validando el pedido FIN")
     }

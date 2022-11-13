@@ -54,3 +54,10 @@ button {
 input{
 	margin-left: 5px;
 }
+
+.total{
+    font-size: 1.2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+}
