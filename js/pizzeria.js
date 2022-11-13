@@ -105,7 +105,7 @@ window.onload = function(){
            formulario.appendChild(saltolinea.cloneNode())
 
            //Almacenamos el objeto JSON datos.json en una variable, para poder acceder a ella(ARRAY)
-           var tamanoPizzas = pizzeriaJson.PIZZERIA.TAMANO;
+           tamanoPizzas = pizzeriaJson.PIZZERIA.TAMANO;
 
             //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
             for(let i=0; i< tamanoPizzas.length; i++){
@@ -134,7 +134,7 @@ window.onload = function(){
 
             //Almacenamos el objeto JSON bbdd_pizzeria.json en una variable, para poder acceder a ella
 
-            var ingredientesPizzas = pizzeriaJson.PIZZERIA.INGREDIENTES;
+            ingredientesPizzas = pizzeriaJson.PIZZERIA.INGREDIENTES;
 
             //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
             for(let i=0; i< ingredientesPizzas.length; i++){
