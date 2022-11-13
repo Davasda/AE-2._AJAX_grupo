@@ -93,44 +93,51 @@ window.onload = function(){
             var pizzeriaJson = JSON.parse(jsonDoc) //Almacenamos en esta variable el json como un objeto array json
             console.log(pizzeriaJson)
 
-        //RADIO BUTTON TAMAÑO PIZZA
+     
+           //CREAMOS EL ELEMENTO DIV PARA PODER ALMACENAR Y RECARGAR LOS DATOS
+           let caja = document.createElement("div")
+           caja.setAttribute("id","caja1")
 
-           //Creamos un titulo con texto y lo añadimos al formulario
-           let tituloh3 = document.createElement("h3")
-           let texto1 = document.createTextNode("¿Qué tamaño te gustaria?")
-           
-           tituloh3.appendChild(texto1)
-           formulario.appendChild(tituloh3)
-           console.log(tituloh3)
-           formulario.appendChild(saltolinea.cloneNode())
+        //RADIO BUTTON TAMAÑO PIZZA
+        
+
+         //Creamos un titulo con texto y lo añadimos al formulario (para el botón refrescar)
+            let tituloh3 = document.createElement("h3")
+            let texto1 = document.createTextNode("¿Qué tamaño te gustaria?")
+                    
+                tituloh3.appendChild(texto1)
+                caja.appendChild(tituloh3)
+                console.log(tituloh3)
+                caja.appendChild(saltolinea.cloneNode())
+                
 
            //Almacenamos el objeto JSON datos.json en una variable, para poder acceder a ella(ARRAY)
            tamanoPizzas = pizzeriaJson.PIZZERIA.TAMANO;
 
             //Creamos un FOR que vaya añadiendo atributos del JSON al DOM mediante nodos
             for(let i=0; i< tamanoPizzas.length; i++){
-               let input2 = document.createElement("input")//<input></input>
-               input2.setAttribute("type", "radio")//<input type="checkbox"></input>
-               input2.setAttribute("name", "tamano")//<input type="checkbox" name="ingredientes"></input>
-               input2.setAttribute("id", tamanoPizzas[i].TAMANO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]"></input>
-               input2.setAttribute("value", tamanoPizzas[i].PRECIO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input>
-               let txt2 = document.createTextNode(tamanoPizzas[i].TAMANO_BASE)//objetoJson.ID[i]
-               let salto2 = document.createElement("br")//<br>
-               formulario.appendChild(input2) //<form> <input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input> </form>
-               formulario.appendChild(txt2)  //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input>
-               formulario.appendChild(salto2) //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input> <br>
-               formulario.appendChild(saltolinea.cloneNode())
+                let input2 = document.createElement("input")//<input></input>
+                input2.setAttribute("type", "radio")//<input type="checkbox"></input>
+                input2.setAttribute("name", "tamano")//<input type="checkbox" name="ingredientes"></input>
+                input2.setAttribute("id", tamanoPizzas[i].TAMANO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]"></input>
+                input2.setAttribute("value", tamanoPizzas[i].PRECIO_BASE)//<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input>
+                let txt2 = document.createTextNode(tamanoPizzas[i].TAMANO_BASE)//objetoJson.ID[i]
+                let salto2 = document.createElement("br")//<br>
+                caja.appendChild(input2) //<form> <input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"></input> </form>
+                caja.appendChild(txt2)  //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input>
+                caja.appendChild(salto2) //<input type="checkbox" name="ingredientes" id="objetoJson.ID[i]" value="1"> objetoJson.ID[i] </input> <br>
             }
-            
+            formulario.appendChild(caja)
+
         //CHECKBOX INGREDIENTES PIZZA
         
             //Creamos un titulo y lo añadimos al formulario
                 let titulo2 = document.createElement("h3")
                 let texto2 = document.createTextNode("¿Te gustaria añadir algún elemento más?")
-                formulario.appendChild(saltolinea.cloneNode())
+                caja.appendChild(saltolinea.cloneNode())
                 titulo2.appendChild(texto2)
-                formulario.appendChild(titulo2)                
-                formulario.appendChild(saltolinea.cloneNode())
+                caja.appendChild(titulo2)                
+                caja.appendChild(saltolinea.cloneNode())
 
             //Almacenamos el objeto JSON bbdd_pizzeria.json en una variable, para poder acceder a ella
 
@@ -145,12 +152,12 @@ window.onload = function(){
                 input3.setAttribute("value", ingredientesPizzas[i].PRECIO_INGREDIENTE)
                 let txt3 = document.createTextNode(ingredientesPizzas[i].INGREDIENTE)
                 let salto2 = document.createElement("br")
-                formulario.appendChild(input3) 
-                formulario.appendChild(txt3) 
-                formulario.appendChild(salto2)
-                formulario.appendChild(saltolinea.cloneNode())
+                caja.appendChild(input3) 
+                caja.appendChild(txt3) 
+                caja.appendChild(salto2)
+                caja.appendChild(saltolinea.cloneNode())
             }
-        
+            formulario.appendChild(caja)
         }
         
 
@@ -192,3 +199,10 @@ window.onload = function(){
         console.log(total)
         console.log("validando el pedido FIN")
     }
+
+        function recargaDatos(){
+            let caja2 =  document.getElementById("caja1")
+            formulario.removeChild(caja2)
+        
+        peticionAsincrona()
+        }
